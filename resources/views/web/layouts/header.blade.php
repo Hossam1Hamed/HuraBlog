@@ -2,7 +2,11 @@
   <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- csrf token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
+
+<!-- user-id -->
+<meta name="user-id" content="{{ auth()->user()->id }}">
 
 <link rel="apple-touch-icon" sizes="76x76" href="{{ URL::asset('assets/img/apple-icon.png')}}">
 <link rel="icon" type="image/png" href="{{ URL::asset('assets/img/favicon.png')}}">

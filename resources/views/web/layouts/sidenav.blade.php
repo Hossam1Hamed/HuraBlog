@@ -5,11 +5,12 @@
       <div class="">
         <div class="card blur shadow-blur max-height-vh-70 overflow-auto overflow-x-hidden mb-5 mb-lg-0">
           <div class="card-header p-3">
-            <h6>Online Users</h6>
+            <h5>Online Users</h6>
 
           </div>
+          <h6 id="no-online-users">no online users</h5>
           <ul class="list-group" id="online-users">
-            
+
           </ul>
 
         </div>

@@ -14,8 +14,5 @@ Route::middleware('auth')->name('website.')->group(function () {
     Route::resource('/posts',PostController::class);
     Route::resource('/comments',CommentController::class);
     Route::post('/post-like',[PostController::class,'doLike'])->name('posts.like');
-    Route::get('/t', function () {
-        event(new \App\Events\PostEvent());
-        dd('Event Run Successfully.');
-    });
+   
 });

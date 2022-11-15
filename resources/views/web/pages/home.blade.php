@@ -39,7 +39,7 @@
                 <!-- <div class="d-flex flex-row icons d-flex align-items-center"> <i class="fal fa-heart pressLove"></i> </div> -->
                 @php
                     $user = auth()->user();
-                    $like_status = $post->likes->contains($user) ? 'btn btn-m btn-success' : 'btn btn-m btn-secondary';
+                    $like_status = $post->likes->contains($user) ? 'btn btn-sm btn-success' : 'btn btn-sm btn-secondary';
                     $likes_count = $post->likes->count();
                 @endphp
                 <div class="d-flex flex-row icons d-flex align-items-center">
