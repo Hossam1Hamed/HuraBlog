@@ -14,6 +14,8 @@
 <script src="{{ URL::asset('assets/js/soft-ui-dashboard.js') }}"></script>
 <script src="{{ URL::asset('assets/js/soft-ui-dashboard.js.map') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
 
 <script>
     $("document").ready(function() {
@@ -26,7 +28,6 @@
 <script>
     var token = "{{Session::token()}}";
     $(".like").on('click',function(){
-        
         var post_id = $(this).attr('data-postid');
         var like_st = $(this).attr('data-like_s');
         var likes_count = $(this).attr('$likes_count');
