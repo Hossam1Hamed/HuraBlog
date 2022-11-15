@@ -46,7 +46,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $model->delete();
     }
 
-    public function allWithPaginate($number = 15){
+    public function allWithPaginate($number = 10){
         return $this->model->paginate($number);
     }
 }

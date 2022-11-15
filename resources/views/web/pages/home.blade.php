@@ -75,6 +75,9 @@
         </div>
     </div>
     @endforeach
+
+    <!-- pagination -->
+    {!! $posts -> links() !!}
 </div>
 
 

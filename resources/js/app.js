@@ -40,3 +40,4 @@ window.Echo.channel(`comment-channel`)
         '<li class="mb-2"><p>$(e.user.name) commented on your post</p></li>' 
     )
 });
+

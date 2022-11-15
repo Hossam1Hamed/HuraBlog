@@ -12,8 +12,8 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         parent::__construct($model);
     }
 
-    public function getAllWithRelations()
+    public function getAllWithRelations($number)
     {
-        return $this->model->with('user','comments.user','likes')->get();
+        return $this->model->with('user','comments.user','likes')->paginate($number);
     }
 }

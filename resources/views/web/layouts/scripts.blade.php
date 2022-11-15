@@ -39,12 +39,12 @@
             success : function(data){
                 if(data.is_like == 1)
                 {
-                    $('*[data-postid="'+post_id +'"]').removeClass('btn-secondary').addClass('btn-primary');
+                    $('*[data-postid="'+post_id +'"]').removeClass('btn-secondary').addClass('btn-success');
                     likes_count = likes_count + 1;
                 }
                 if(data.is_like == 0)
                 {
-                    $('*[data-postid="'+post_id +'"]').removeClass('btn-primary').addClass('btn-secondary');
+                    $('*[data-postid="'+post_id +'"]').removeClass('btn-success').addClass('btn-secondary');
                     likes_count = likes_count - 1;
                 }
                 

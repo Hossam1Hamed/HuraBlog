@@ -17,7 +17,7 @@ class HomePageController extends Controller
     
     public function index()
     {
-        $posts = $this->postRepo->getAllWithRelations();
+        $posts = $this->postRepo->getAllWithRelations(5);
         // return $posts[0]->likes->contains(Auth::user());
         // dd($posts);
         return view('web.pages.home',compact('posts'));
