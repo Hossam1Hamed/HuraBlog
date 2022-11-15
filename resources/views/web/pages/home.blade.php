@@ -33,18 +33,19 @@
             <h4 class="text-justify">{{$post->title}}</h4>
             <p class="text-justify">{{$post->content}}</p>
             <hr>
+            
             <div class="d-flex justify-content-between align-items-center">
                 <!-- <p class="likeBtn"><i class="fa fa-thumbs-up pressLike"></i> Like</p> -->
                 <!-- <div class="d-flex flex-row icons d-flex align-items-center"> <i class="fal fa-heart pressLove"></i> </div> -->
                 @php
                     $user = auth()->user();
-                    $like_status = $post->likes->contains->$user ? 'bg-success' : 'bg-secondary';
+                    $like_status = $post->likes->contains($user) ? 'btn btn-m btn-success' : 'btn btn-m btn-secondary';
                     $likes_count = $post->likes->count();
                 @endphp
                 <div class="d-flex flex-row icons d-flex align-items-center">
         
                     <button data-like_s="{{$like_status}}" data-postid="{{$post->id}}" data-likes_count="{{$likes_count}}" type="button"
-                        class="badge bg-sm {{$like_status}} like outline-none">
+                        class="{{$like_status}} like outline-none">
                              <span class="fa fa-thumbs-up"></span> Like </button>
                 </div>
                 <div class="d-flex flex-row muted-color"> 

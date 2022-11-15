@@ -40,12 +40,12 @@
             success : function(data){
                 if(data.is_like == 1)
                 {
-                    $('*[data-postid="'+post_id +'"]').removeClass('btn-secondary').addClass('btn-success');
+                    $('*[data-postid="'+post_id +'"]').removeClass('btn btn-sm btn-secondary').addClass('btn btn-sm btn-success');
                     likes_count = likes_count + 1;
                 }
                 if(data.is_like == 0)
                 {
-                    $('*[data-postid="'+post_id +'"]').removeClass('btn-success').addClass('btn-secondary');
+                    $('*[data-postid="'+post_id +'"]').removeClass('btn btn-sm btn-success').addClass('btn btn-sm btn-secondary');
                     likes_count = likes_count - 1;
                 }
                 
