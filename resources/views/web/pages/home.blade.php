@@ -23,7 +23,7 @@
     <div class="card">
 
         <div class="d-flex justify-content-between p-2 px-3">
-            <div class="d-flex flex-row align-items-center"> <img src="{{url('storage/images/'.$post->user->image)}}" width="50" class="rounded-circle">
+            <div class="d-flex flex-row align-items-center"> <img src="{{url('storage/'.$post->user->image)}}" width="50" class="rounded-circle mx-2">
                 <div class="d-flex flex-column ml-2"> <span class="font-weight-bold">{{$post->user->name}}</span> </div>
             </div>
             <div class="d-flex flex-row mt-1"> <small class="mr-2">{{\Carbon\Carbon::parse($post->created_at)->diffForHumans()}}</small> </div>
@@ -56,7 +56,7 @@
             <hr>
             <div class="comments">
                 @foreach($post->comments as $comment)
-                <div class="d-flex flex-row mb-2"> <img src="https://i.imgur.com/9AZ2QX1.jpg" width="40" class="rounded-image">
+                <div class="d-flex flex-row align-items-start mb-2"> <img src="{{url('storage/'.$comment->user->image)}}" width="40" class="rounded-circle mx-2">
                     <div class="d-flex flex-column ml-2"> <span class="name">{{$comment->user->name}}</span> <small class="comment-text">{{$comment->content}}</small>
                         <div class="d-flex flex-row align-items-center status"><small>{{\Carbon\Carbon::parse($comment->created_at)->diffForHumans()}}</small> </div>
                     </div>

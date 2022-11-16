@@ -45,7 +45,6 @@ class PostController extends Controller
 
     public function doLike(Request $request)
     {
-        $like_status = $request->like_s;
         $post_id = $request->post_id;
         
         $like = DB::table('likes')

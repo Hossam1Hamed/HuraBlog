@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
                 'name' => $faker->name(),
                 'email' => $faker->email(),
                 'password' => Hash::make('password'),
+                'image' => 'avatars/default.JPG',
             ]);
         }
     }
