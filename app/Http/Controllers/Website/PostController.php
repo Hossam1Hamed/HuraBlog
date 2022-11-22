@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Events\PostEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Website\PostRequest;
+use App\Interfaces\LikeRepositoryInterface;
 use App\Interfaces\PostRepositoryInterface;
 use App\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
@@ -15,10 +16,12 @@ class PostController extends Controller
 {
     private $postRepo;
     private $userRepo;
-    public function __construct(PostRepositoryInterface $postRepoInterface,UserRepositoryInterface $userRepoInterface)
+    private $likeRepo;
+    public function __construct(PostRepositoryInterface $postRepoInterface,UserRepositoryInterface $userRepoInterface,LikeRepositoryInterface $likeRepoInterface)
     {
         $this->postRepo = $postRepoInterface;
         $this->userRepo = $userRepoInterface;
+        $this->likeRepo = $likeRepoInterface;
     }
     public function index()
     {
@@ -46,21 +49,16 @@ class PostController extends Controller
     public function doLike(Request $request)
     {
         $post_id = $request->post_id;
-        
-        $like = DB::table('likes')
-                ->where('post_id',$post_id)
-                ->where('user_id',Auth::user()->id)
-                ->first();
+        $user_id = Auth::user()->id ;
+        $like = $this->likeRepo->checkIfUserLikePost($post_id,$user_id);
         
         if(!$like)
         {
-            DB::table('likes')->insert([
-                'user_id' => Auth::user()->id,
-                'post_id' => $post_id,
-            ]);
+            $this->likeRepo->insertIntoLikes($user_id,$post_id);
             $is_like = 1;
+
         }elseif($like){
-            DB::table('likes')->where('id',$like->id)->delete();
+            $this->likeRepo->deleteLike($like->id);
             $is_like = 0;
         }
         $response = array(

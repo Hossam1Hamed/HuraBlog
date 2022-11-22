@@ -42,10 +42,5 @@ class User extends Authenticatable
         // a user likes many posts via the 'likes' table
         return $this->belongsToMany(Post::class, 'likes');
     }
-    public function like(Post $post) {
-        return $this->likes()->attach($post);
-    }
-    public function unlike(Post $post) {
-        return $this->likes()->detach($post);
-    }
+    
 }

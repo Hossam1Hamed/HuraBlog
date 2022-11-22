@@ -23,7 +23,7 @@
         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
         <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Index</li>
       </ol>
-      <h6 class="font-weight-bolder mb-0">Index</h6>
+      <a href="{{route('website.home')}}"><h6 class="font-weight-bolder mb-0">Index</h6></a>
 
     </nav>
     <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
